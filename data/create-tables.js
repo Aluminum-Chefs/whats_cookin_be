@@ -21,7 +21,7 @@ async function run() {
                 CREATE TABLE users (
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(256) NOT NULL,
-                    hash VARCHAR(512) NOT NULL
+                    hash VARCHAR(512) NOT NULL,
                     schedule_id INTEGER NOT NULL REFERENCES schedules(id)
                 );       
 
@@ -30,7 +30,7 @@ async function run() {
                     source_id INTEGER NOT NULL,
                     title VARCHAR(256) NOT NULL,
                     image_url VARCHAR(256) NOT NULL,
-                    notes VARCHAR(512) NOT NULL
+                    notes VARCHAR(512) NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
                     );
 
@@ -42,7 +42,7 @@ async function run() {
                     owner_id INTEGER NOT NULL REFERENCES users(id)
                     
                     );
-            );
+            
 
         `);
 
