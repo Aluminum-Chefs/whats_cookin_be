@@ -45,14 +45,16 @@ async function run() {
         [favorite.source_id, favorite.title, favorite.image_url, favorite.notes, user.id]);
       })
     );
-    days.map(day => {
-      return client.query(`
+    await Promise.all(
+      days.map(day => {
+        return client.query(`
                   INSERT INTO days (date, schedule_id, favorite_id,  owner_id)
                   VALUES ($1, $2, $3, $4)
               `,
-      [day.date, day.schedule_id, day.favorite_id, user.id]);
+        [day.date, day.schedule_id, day.favorite_id, user.id]);
     
-    });
+      })
+    );
   
   
     
