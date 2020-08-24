@@ -36,7 +36,7 @@ async function run() {
 
                 CREATE TABLE days (
                     id SERIAL PRIMARY KEY,
-                    date VARCHAR(256) NOT NULL,
+                    date DATE NOT NULL,
                     schedule_id INTEGER NOT NULL REFERENCES schedules(id),
                     favorite_id INTEGER NOT NULL REFERENCES favorites(id),
                     owner_id INTEGER NOT NULL REFERENCES users(id)
