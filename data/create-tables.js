@@ -36,9 +36,10 @@ async function run() {
 
                 CREATE TABLE days (
                     id SERIAL PRIMARY KEY,
-                    date DATE NOT NULL,
+                    day DATE NOT NULL,
                     schedule_id INTEGER NOT NULL REFERENCES schedules(id),
-                    favorite_id INTEGER NOT NULL REFERENCES favorites(id),
+                    favorite_id INTEGER NOT NULL REFERENCES favorites(id)
+                    ON DELETE CASCADE,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
                     
                     );
