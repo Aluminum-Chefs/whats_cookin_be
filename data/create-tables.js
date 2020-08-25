@@ -15,7 +15,6 @@ async function run() {
                 CREATE TABLE schedules (
                     id SERIAL PRIMARY KEY,
                     name VARCHAR(256) NOT NULL
-
                 );
 
                 CREATE TABLE users (
@@ -31,16 +30,16 @@ async function run() {
                     title VARCHAR(256) NOT NULL,
                     image_url VARCHAR(256) NOT NULL,
                     notes VARCHAR(512) NOT NULL,
-                    owner_id INTEGER NOT NULL REFERENCES users(id)
+                    owner_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
                     );
 
                 CREATE TABLE days (
                     id SERIAL PRIMARY KEY,
                     day DATE NOT NULL,
-                    schedule_id INTEGER NOT NULL REFERENCES schedules(id),
+                    schedule_id INTEGER NOT NULL REFERENCES schedules(id) ON DELETE CASCADE ,
                     favorite_id INTEGER NOT NULL REFERENCES favorites(id)
                     ON DELETE CASCADE,
-                    owner_id INTEGER NOT NULL REFERENCES users(id)
+                    owner_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
                     
                     );
             
