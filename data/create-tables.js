@@ -29,7 +29,7 @@ async function run() {
                     source_id INTEGER NOT NULL,
                     title VARCHAR(256) NOT NULL,
                     image_url VARCHAR(256) NOT NULL,
-                    notes VARCHAR(512) NOT NULL,
+                    notes VARCHAR(512),
                     owner_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
                     );
 
